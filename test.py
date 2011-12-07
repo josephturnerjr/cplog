@@ -13,3 +13,8 @@ cplog.set_loglevel(5)
 # Will print
 cplog.log("Hey 5", 1)
 cplog.log("Hey 6", 2)
+cplog.set_loglevel(getattr(cplog, "notice"))
+# Will
+cplog.log("Hey 7", 2)
+# Won't
+cplog.log("Hey 8", 3)

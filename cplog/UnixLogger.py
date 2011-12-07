@@ -45,4 +45,4 @@ class UnixLogger(object):
         return l
 
     def log(self, message, priority):
-        syslog.syslog(self._int_to_level(priority), message)
+        syslog.syslog(self._int_to_level(priority), str(message))
