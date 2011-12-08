@@ -3,7 +3,8 @@ import syslog
 
 class UnixLogger(object):
     def __init__(self):
-        self.set_loglevel(0)
+        self.loglevel = 0
+        self.set_loglevel(self.loglevel)
         self.options = syslog.LOG_PID
         self.facility = syslog.LOG_DAEMON
         self.stderr = syslog.LOG_PERROR
@@ -18,6 +19,7 @@ class UnixLogger(object):
         # Documentation calls for a 'logopt' kwarg, but its actually logoption
         # See bug http://bugs.python.org/issue11648
         syslog.openlog(logoption=logopt, facility=self.facility)
+        self.set_loglevel(self.loglevel)
 
     def echo_to_screen(self, flag):
         if flag:
@@ -29,6 +31,7 @@ class UnixLogger(object):
     def set_loglevel(self, newlevel):
         l = self._int_to_level(newlevel)
         self.mask = syslog.LOG_UPTO(l)
+        self.loglevel = newlevel
         syslog.setlogmask(self.mask)
 
     def _int_to_level(self, loglevel):
