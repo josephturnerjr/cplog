@@ -1,7 +1,7 @@
 class WinLogger(object):
     def __init__(self):
         self.loglevel = 0
-        self.log_filename = r"C:\log.txt"
+        self.log_filename = None
         self.echo = False
 
     def closelog(self):
