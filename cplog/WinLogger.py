@@ -24,7 +24,7 @@ class WinLogger(object):
             if self.log_filename:
                 try:
                     with open(self.log_filename, "a") as log:
-                        log.write(message)
+                        log.write("%s\n" % (message,))
                 except IOError, e:
                     print "Couldn't open logfile %s: %s" % (self.log_filename, 
                                                             e)
