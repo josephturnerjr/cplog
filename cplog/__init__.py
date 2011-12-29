@@ -1,10 +1,10 @@
 import sys
-from UnixLogger import UnixLogger
-from WinLogger import WinLogger
 
 if sys.platform.startswith('linux'):
+    from UnixLogger import UnixLogger
     _logger = UnixLogger()
 else:
+    from WinLogger import WinLogger
     _logger = WinLogger()
 
 # Priorities
