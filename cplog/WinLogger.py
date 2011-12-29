@@ -9,7 +9,7 @@ class WinLogger(object):
 
     def openlog(self):
         pass
-    
+
     def set_log_filename(self, filename):
         self.log_filename = filename
 
@@ -26,8 +26,7 @@ class WinLogger(object):
                     with open(self.log_filename, "a") as log:
                         log.write("%s\n" % (message,))
                 except IOError, e:
-                    print "Couldn't open logfile %s: %s" % (self.log_filename, 
+                    print "Couldn't open logfile %s: %s" % (self.log_filename,
                                                             e)
             if self.echo:
                 print message
-            
