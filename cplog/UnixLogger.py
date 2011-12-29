@@ -12,10 +12,10 @@ class UnixLogger(object):
 
     def closelog(self):
         syslog.closelog()
-        
+
     def openlog(self):
-        logopt = self.options|self.stderr
-        # This is broken in the documentation! 
+        logopt = self.options | self.stderr
+        # This is broken in the documentation!
         # Documentation calls for a 'logopt' kwarg, but its actually logoption
         # See bug http://bugs.python.org/issue11648
         syslog.openlog(logoption=logopt, facility=self.facility)
@@ -36,7 +36,7 @@ class UnixLogger(object):
 
     def _int_to_level(self, loglevel):
         if loglevel == 0:
-            l = syslog.LOG_ERR   
+            l = syslog.LOG_ERR
         elif loglevel == 1:
             l = syslog.LOG_WARNING
         elif loglevel == 2:

@@ -4,7 +4,7 @@ class WinLogger(object):
 
     def closelog(self):
         pass
-        
+
     def openlog(self):
         pass
 
