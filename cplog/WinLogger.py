@@ -1,3 +1,5 @@
+import datetime
+
 class WinLogger(object):
     def __init__(self):
         self.loglevel = 0
@@ -24,7 +26,7 @@ class WinLogger(object):
             if self.log_filename:
                 try:
                     with open(self.log_filename, "a") as log:
-                        log.write("%s\n" % (message,))
+                        log.write("%s: %s\n" % (datetime.datetime.today(), message,))
                 except IOError, e:
                     print "Couldn't open logfile %s: %s" % (self.log_filename,
                                                             e)
